@@ -1,0 +1,97 @@
+body{
+    animation: fadein 0.5s;
+}
+
+@keyframes fadein {
+    from { opacity: 0}
+    to   { opacity: 1}
+}
+
+#containerBody{
+    height: 100vh;
+    background: #ececec;
+}
+
+#tituloProjeto{
+    color: #3e6bad;
+    font-weight: 600;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+.card{
+    border-radius: 0.5rem;
+}
+
+.row{
+    flex-direction: row;
+}
+
+#cardMenus{
+    padding: 3rem;
+    background: #fff;
+    border-radius: 0.5rem;
+    padding-bottom: 8rem;
+}
+
+.card-item-menu{
+    text-decoration: none;
+    color: #4a7fcf;
+}
+
+.card-item-menu:hover{
+    text-decoration: none;
+    background: #4a7fcf;
+    color: #fff !important;
+    transition: 0.2s;
+    box-shadow: 2px 3px 8px 4px rgba(27,47,76,0.24);
+}
+
+.card-item-menu:hover .descricaoCard{
+    color: #ececec;
+    transition: 0.2s;
+}
+
+.divIconCard{
+    position:relative;
+    margin: auto;
+}
+
+.iconeCard{
+    font-size: 2rem;
+    text-align: center;
+}
+
+.tituloCard{
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.descricaoCard{
+    font-size: 0.9rem;
+    line-height: 1.1rem;
+    color: #828ea0;
+    text-align: center;
+}
+
+.text-center{
+    text-align:center;
+}
+
+.btn-voltar{
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    color: #4a7fcf;
+    background: #fff;
+    border: 1px solid #4a7fcf;
+    border-radius: 100%;
+}
+
+.btn-voltar:hover{
+    color: #fff;
+    background: #4a7fcf;
+}
+
+.btn-voltar i{
+    padding: 0.6rem;
+}
