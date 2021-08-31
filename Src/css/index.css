@@ -1,4 +1,6 @@
 body{
+    min-height: 100% !important;
+    height: 100%;
     animation: fadein 0.5s;
 }
 
@@ -8,7 +10,8 @@ body{
 }
 
 #containerBody{
-    height: 100vh;
+    position: absolute;
+    min-height: 100%;
     background: #ececec;
 }
 
@@ -27,10 +30,9 @@ body{
 }
 
 #cardMenus{
-    padding: 3rem;
     background: #fff;
     border-radius: 0.5rem;
-    padding-bottom: 8rem;
+    padding-bottom: 8rem !important;
 }
 
 .card-item-menu{

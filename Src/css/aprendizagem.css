@@ -1,0 +1,22 @@
+#accordion .card{
+    border-radius: 10px;
+}
+
+.card-header{
+    background:#ffffff;
+    border-radius: 10px !important;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    color: #4a7fcf;
+}
+
+.card-header:hover{
+    background: #4a7fcf;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tituloDefinicao{
+    color: #33578d;
+    font-size: 1.2rem;
+}

@@ -1,49 +1,211 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="/SortProjEstruturaDados/Src/img/favicon.png"/>
+    <link rel="icon" type="image/png" href="/SortProjEstruturaDados/Src/img/favicon.png" />
     <title>SortProj - Aprendizagem</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="/SortProjEstruturaDados/Src/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css" />
     <link rel="stylesheet" type="text/css" href="/SortProjEstruturaDados/Src/css/index.css" />
-    
+    <link rel="stylesheet" type="text/css" href="/SortProjEstruturaDados/Src/css/aprendizagem.css" />
 </head>
+
 <body>
     <div id="containerBody" class="container col-12 border py-5">
-        <div id="cardMenus" class="col-12 col-md-10 mx-auto row">
-            <div class="col-12 mb-5">
-                <h2 id="tituloProjeto" class="text-center">Aprendizagem</h2>
+        <div id="cardMenus" class="col-12 col-md-10 mx-auto row p-1 p-md-5">
+            <div class="col-12 mb-5 px-5">
+                <h2 id="tituloProjeto" class="text-center mt-5 mt-md-1">Aprendizagem</h2>
             </div>
             <a href="/SortProjEstruturaDados/index.html" class="btn-voltar" title="Home">
                 <i class="fa fa-arrow-left"></i>
             </a>
-            <!-- <a id="cardAprendizagem" href="#" class="card card-item-menu row col-12 col-md-5 col-lg-4 mx-auto p-3 mt-2">
-                <div class="col-12 col-md-3 text-center divIconCard">
-                    <i class="fas fa-book-open iconeCard my-auto"></i>
+            <div id="accordion" class="col-12">
+                <div class="card">
+                    <div class="card-header py-3" id="heading1" data-toggle="collapse" data-target="#collapse1"
+                        aria-expanded="true" aria-controls="collapse1">
+                        <h6 class="mb-0">
+                            Bubble Sort
+                        </h6>
+                    </div>
+
+                    <div id="collapse1" class="collapse show" aria-labelledby="heading1" data-parent="#accordion">
+                        <div class="card-body">
+                            <h5 class="tituloDefinicao">Definição</h5>
+                            <span>O método Bubble Sort é um dos algoritmos mais simples de ordenação e seu funcionamento ocorre por meio da comparação entre dois elementos e sua permuta, de modo que o elemento de maior valor fique à direita do outro.<br />
+                            Dessa forma, após a primeira passagem completa pelo vetor podemos garantir que o maior item terá sido deslocado para a última posição do vetor. Essa movimentação se repete até que o vetor fique totalmente ordenado.
+                            </span>
+                            <h5 class="tituloDefinicao mt-4">Implementação</h5>
+                            <pre class="mt-3"><code class="language-js">function sortItems(array) {
+    let swapped = true;
+    do {
+        swapped = false;
+        for (let j = 0; j < array.length; j++) {
+            if (array[j] > array[j + 1]) {
+                let temp = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = temp;
+                swapped = true;
+            }
+        }
+    } while (swapped);
+    return array;
+}</code></pre>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-12 col-md-9 px-0 row mx-auto">
-                    <span class="tituloCard text-center col-12 px-0">Aprendizagem</span>
-                    <span class="descricaoCard mx-auto">Descubra mais sobre cada método de ordenação</span>
+                <div class="card mt-3">
+                    <div class="card-header py-3" id="heading2" data-toggle="collapse" data-target="#collapse2"
+                        aria-expanded="true" aria-controls="collapse1">
+                        <h6 class="mb-0">
+                            Insertion Sort
+                        </h6>
+                    </div>
+
+                    <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordion">
+                        <div class="card-body">
+                            <h5 class="tituloDefinicao">Definição</h5>
+                            <span>O Insertion Sort é de fácil implementação, similar ao Bubble Sort (SZWARCFITER e
+                                MARKENZON, 2015). Seu funcionamento se dá por comparação e inserção direta. A
+                                medida que o algoritmo varre a lista de elementos, o mesmo os organiza, um a um, em sua
+                                posição mais correta, onde o elemento a ser alocado (k) terá, a sua esquerda um valor
+                                menor (k-1), e, de maneira similar, à sua direita um valor maior (k+1). 
+                            </span>
+                            <h5 class="tituloDefinicao mt-4">Implementação</h5>
+                            <pre class="mt-3"><code class="language-js">function insertionSort(inputArr) {
+    let n = inputArr.length;
+        for (let i = 1; i < n; i++) {
+            // Choosing the first element in our unsorted subarray
+            let current = inputArr[i];
+            // The last element of our sorted subarray
+            let j = i-1; 
+            while ((j > -1) && (current < inputArr[j])) {
+                inputArr[j+1] = inputArr[j];
+                j--;
+            }
+            inputArr[j+1] = current;
+        }
+    return inputArr;
+}</code></pre>
+                        </div>
+                    </div>
                 </div>
-            </a>
-            <a id="cardComparacao" href="#" class="card card-item-menu row col-12 col-md-5 col-lg-4 mx-auto p-3 mt-3 mt-md-0">
-                <div class="col-12 col-md-3 text-center divIconCard">
-                    <i class="fas fa-code iconeCard"></i>
+                <div class="card mt-3">
+                    <div class="card-header py-3" id="heading3" data-toggle="collapse" data-target="#collapse3"
+                        aria-expanded="true" aria-controls="collapse3">
+                        <h6 class="mb-0">
+                            Selection Sort
+                        </h6>
+                    </div>
+
+                    <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordion">
+                        <div class="card-body">
+                            <h5 class="tituloDefinicao">Definição</h5>
+                            <span>Um dos mais simples e utilizados, o Selection Sort tem como principal finalidade passar o
+                                menor valor para a primeira posição, o segundo menor para a segunda posição, e assim
+                                sucessivamente, para os n valores nas n posições, onde o valor à esquerda é sempre menor
+                                que o valor à direita (valoresquerda < valordireita).
+                            </span>
+                            <h5 class="tituloDefinicao mt-4">Implementação</h5>
+                            <pre class="mt-3"><code class="language-js">function selectionSort(inputArr) { 
+    let n = inputArr.length;
+        
+    for(let i = 0; i < n; i++) {
+        // Finding the smallest number in the subarray
+        let min = i;
+        for(let j = i+1; j < n; j++){
+            if(inputArr[j] < inputArr[min]) {
+                min=j; 
+            }
+            }
+            if (min != i) {
+                // Swapping the elements
+                let tmp = inputArr[i]; 
+                inputArr[i] = inputArr[min];
+                inputArr[min] = tmp;      
+        }
+    }
+    return inputArr;
+}</code></pre>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-12 col-md-9 px-0 row mx-auto">
-                    <span class="tituloCard text-center col-12 px-0">Comparação</span>
-                    <span class="descricaoCard mx-auto">Compare os método de ordenação</span>
+                <div class="card mt-3">
+                    <div class="card-header py-3" id="heading4" data-toggle="collapse" data-target="#collapse4"
+                        aria-expanded="true" aria-controls="collapse4">
+                        <h6 class="mb-0">
+                            Merge Sort
+                        </h6>
+                    </div>
+
+                    <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordion">
+                        <div class="card-body">
+                            <h5 class="tituloDefinicao">Definição</h5>
+                            <span>Este algoritmo tem como objetivo a reordenação de uma estrutura linear por meio da
+                                quebra, intercalação e união dos n elementos existentes. Em outras palavras, a estrutura a
+                                ser reordenada será, de forma recursiva, subdividida em estruturas menores até que não seja
+                                mais possível fazê-lo. Em seguida, os elementos serão organizados de modo que cada
+                                subestrutura ficará ordenada. Feito isso, as subestruturas menores (agora ordenadas) serão
+                                unidas, sendo seus elementos ordenados por meio de intercalação (SZWARCFITER e
+                                MARKENZON, 2015). O mesmo processo repete-se até que todos os elementos estejam
+                                unidos em uma única estrutura organizada
+                            </span>
+                            <h5 class="tituloDefinicao mt-4">Implementação</h5>
+                            <pre class="mt-3"><code class="language-js">function merge(left, right) {
+    let arr = []
+    // Break out of loop if any one of the array gets empty
+    while (left.length && right.length) {
+        // Pick the smaller among the smallest element of left and right sub arrays 
+        if (left[0] < right[0]) {
+            arr.push(left.shift())  
+        } else {
+            arr.push(right.shift()) 
+        }
+    }
+    
+    // Concatenating the leftover elements
+    // (in case we didn't go through the entire left or right array)
+    return [ ...arr, ...left, ...right ]
+}
+
+function mergeSort(array) {
+    const half = array.length / 2
+    
+    // Base case or terminating case
+    if(array.length < 2){
+      return array 
+    }
+    
+    const left = array.splice(0, half)
+    return merge(mergeSort(left),mergeSort(array))
+}
+</code></pre>
+                        </div>
+                    </div>
                 </div>
-            </a> -->
+            </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"
+        integrity="sha512-axJX7DJduStuBB8ePC8ryGzacZPr3rdLaIDZitiEgWWk2gsXxEFlm4UW0iNzj2h3wp5mOylgHAzBzM4nRSvTZA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="Scripts/index.js"></script>
 </body>
+
 </html>
