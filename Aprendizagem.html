@@ -21,6 +21,7 @@
         <div id="cardMenus" class="col-12 col-md-10 mx-auto row p-1 p-md-5">
             <div class="col-12 mb-5 px-5">
                 <h2 id="tituloProjeto" class="text-center mt-5 mt-md-1">Aprendizagem</h2>
+                <p class="mensagemInicial">Conheça mais e teste cada método de ordenação</p>
             </div>
             <a href="/SortProjEstruturaDados/index.html" class="btn-voltar" title="Home">
                 <i class="fa fa-arrow-left"></i>
@@ -34,28 +35,46 @@
                         </h6>
                     </div>
 
-                    <div id="collapse1" class="collapse show" aria-labelledby="heading1" data-parent="#accordion">
+                    <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordion">
                         <div class="card-body">
                             <h5 class="tituloDefinicao">Definição</h5>
-                            <span>O método Bubble Sort é um dos algoritmos mais simples de ordenação e seu funcionamento ocorre por meio da comparação entre dois elementos e sua permuta, de modo que o elemento de maior valor fique à direita do outro.<br />
-                            Dessa forma, após a primeira passagem completa pelo vetor podemos garantir que o maior item terá sido deslocado para a última posição do vetor. Essa movimentação se repete até que o vetor fique totalmente ordenado.
+                            <span>O método Bubble Sort é um dos algoritmos mais simples de ordenação e seu funcionamento
+                                ocorre por meio da comparação entre dois elementos e sua permuta, de modo que o elemento
+                                de maior valor fique à direita do outro.<br />
+                                Dessa forma, após a primeira passagem completa pelo vetor podemos garantir que o maior
+                                item terá sido deslocado para a última posição do vetor. Essa movimentação se repete até
+                                que o vetor fique totalmente ordenado.
                             </span>
                             <h5 class="tituloDefinicao mt-4">Implementação</h5>
-                            <pre class="mt-3"><code class="language-js">function sortItems(array) {
-    let swapped = true;
-    do {
-        swapped = false;
-        for (let j = 0; j < array.length; j++) {
-            if (array[j] > array[j + 1]) {
-                let temp = array[j];
-                array[j] = array[j + 1];
-                array[j + 1] = temp;
-                swapped = true;
-            }
-        }
-    } while (swapped);
-    return array;
-}</code></pre>
+                            <pre class="mt-3"><code class="language-js" id="codeBubble"></code></pre>
+
+                            <div class="row mt-4 py-3">
+                                <h5 class="tituloDefinicao ml-3 my-auto">Exemplo</h5>
+                                <btn class="btn btn-success font-weight-bold ml-3" id="btnExecutarBubble">Executar<i
+                                        class="ml-2 fa fa-caret-right"></i></btn>
+                            </div>
+                            <div class="row ml-3" id="ExemploBubble">
+                                <div class="col-12 col-lg-3 col-xl-3">
+                                    <label class="font-weight-bold">Ordem</label>
+                                    <select class="form-control select2 selectOrdem">
+                                        <option value="Aleatoria" selected>Aleatória</option>
+                                        <option value="Crescente">Crescente</option>
+                                        <option value="Decrescente">Decrescente</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-lg-4 col-xl-3">
+                                    <label class="font-weight-bold">Tamanho do Array</label>
+                                    <input type="number" min="0" value="200" placeholder="tamanho array"
+                                        class="form-control inputTamanho">
+                                </div>
+                                <div class="col-12 col-lg-5 col-xl-3">
+                                    <label class="font-weight-bold">Total de Arrays para média</label>
+                                    <input type="number" min="0" value="3" placeholder="Qnt de arrays para média"
+                                        class="form-control inputTamMedia">
+                                </div>
+                                <div id="resultadoExemploBubble" class="col-11 ml-3 mt-3 p-4 border resultadoExemplo">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -70,28 +89,44 @@
                     <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordion">
                         <div class="card-body">
                             <h5 class="tituloDefinicao">Definição</h5>
-                            <span>O Insertion Sort é de fácil implementação, similar ao Bubble Sort (SZWARCFITER e
-                                MARKENZON, 2015). Seu funcionamento se dá por comparação e inserção direta. A
-                                medida que o algoritmo varre a lista de elementos, o mesmo os organiza, um a um, em sua
-                                posição mais correta, onde o elemento a ser alocado (k) terá, a sua esquerda um valor
-                                menor (k-1), e, de maneira similar, à sua direita um valor maior (k+1). 
+                            <span>O método InsertionSort é bem similar ao BubbleSort, no qual seu funcionamento se dá
+                                por comparação e inserção direta, ou seja, à
+                                medida com que o algoritmo varre a lista de elementos, ele os organiza, um a um, em sua
+                                devida posição.<br />Dessa forma, em ordem crescente, um elemento a ser alocado (i)
+                                terá, a sua esquerda um valor
+                                menor (i-1), e, de maneira similar, à sua direita um valor maior (i+1). Na ordenação
+                                decrescente essas posições serão invertidas.
                             </span>
                             <h5 class="tituloDefinicao mt-4">Implementação</h5>
-                            <pre class="mt-3"><code class="language-js">function insertionSort(inputArr) {
-    let n = inputArr.length;
-        for (let i = 1; i < n; i++) {
-            // Choosing the first element in our unsorted subarray
-            let current = inputArr[i];
-            // The last element of our sorted subarray
-            let j = i-1; 
-            while ((j > -1) && (current < inputArr[j])) {
-                inputArr[j+1] = inputArr[j];
-                j--;
-            }
-            inputArr[j+1] = current;
-        }
-    return inputArr;
-}</code></pre>
+                            <pre class="mt-3"><code class="language-js" id="codeInsertion"></code></pre>
+
+                            <div class="row mt-4 py-3">
+                                <h5 class="tituloDefinicao ml-3 my-auto">Exemplo</h5>
+                                <btn class="btn btn-success font-weight-bold ml-3" id="btnExecutarInsertion">Executar<i
+                                        class="ml-2 fa fa-caret-right"></i></btn>
+                            </div>
+                            <div class="row ml-3" id="ExemploInsertion">
+                                <div class="col-12 col-lg-3 col-xl-3">
+                                    <label class="font-weight-bold">Ordem</label>
+                                    <select class="form-control select2 selectOrdem">
+                                        <option value="Aleatoria" selected>Aleatória</option>
+                                        <option value="Crescente">Crescente</option>
+                                        <option value="Decrescente">Decrescente</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-lg-4 col-xl-3">
+                                    <label class="font-weight-bold">Tamanho do Array</label>
+                                    <input type="number" min="0" value="200" placeholder="tamanho array"
+                                        class="form-control inputTamanho">
+                                </div>
+                                <div class="col-12 col-lg-5 col-xl-3">
+                                    <label class="font-weight-bold">Total de Arrays para média</label>
+                                    <input type="number" min="0" value="3" placeholder="Qnt de arrays para média"
+                                        class="form-control inputTamMedia">
+                                </div>
+                                <div id="resultadoExemploInsertion"
+                                    class="col-11 ml-3 mt-3 p-4 border resultadoExemplo"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -106,32 +141,36 @@
                     <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordion">
                         <div class="card-body">
                             <h5 class="tituloDefinicao">Definição</h5>
-                            <span>Um dos mais simples e utilizados, o Selection Sort tem como principal finalidade passar o
-                                menor valor para a primeira posição, o segundo menor para a segunda posição, e assim
-                                sucessivamente, para os n valores nas n posições, onde o valor à esquerda é sempre menor
-                                que o valor à direita (valoresquerda < valordireita).
-                            </span>
+                            <span>O método SelectionSort é um dos utilizados e de mais simples uso, ele tem como principal finalidade, quando em ordem crescente, passar o menor valor para a primeira posição, o segundo menor para a segunda posição, e assim sucessivamente, para os n valores nas n posições, onde o valor à esquerda é sempre menor que o valor à direita (valoresquerda < valordireita).<br /> Já na ordenação de forma decrescente o processo é basicamente o mesmo, porém passando os elementos de maior valor sucessivamente nas posições. </span>
                             <h5 class="tituloDefinicao mt-4">Implementação</h5>
-                            <pre class="mt-3"><code class="language-js">function selectionSort(inputArr) { 
-    let n = inputArr.length;
-        
-    for(let i = 0; i < n; i++) {
-        // Finding the smallest number in the subarray
-        let min = i;
-        for(let j = i+1; j < n; j++){
-            if(inputArr[j] < inputArr[min]) {
-                min=j; 
-            }
-            }
-            if (min != i) {
-                // Swapping the elements
-                let tmp = inputArr[i]; 
-                inputArr[i] = inputArr[min];
-                inputArr[min] = tmp;      
-        }
-    }
-    return inputArr;
-}</code></pre>
+                            <pre class="mt-3"><code class="language-js" id="codeSelection"></code></pre>
+                            <div class="row mt-4 py-3">
+                                <h5 class="tituloDefinicao ml-3 my-auto">Exemplo</h5>
+                                <btn class="btn btn-success font-weight-bold ml-3" id="btnExecutarSelection">Executar<i
+                                        class="ml-2 fa fa-caret-right"></i></btn>
+                            </div>
+                            <div class="row ml-3" id="ExemploSelection">
+                                <div class="col-12 col-lg-3 col-xl-3">
+                                    <label class="font-weight-bold">Ordem</label>
+                                    <select class="form-control select2 selectOrdem">
+                                        <option value="Aleatoria" selected>Aleatória</option>
+                                        <option value="Crescente">Crescente</option>
+                                        <option value="Decrescente">Decrescente</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-lg-4 col-xl-3">
+                                    <label class="font-weight-bold">Tamanho do Array</label>
+                                    <input type="number" min="0" value="200" placeholder="tamanho array"
+                                        class="form-control inputTamanho">
+                                </div>
+                                <div class="col-12 col-lg-5 col-xl-3">
+                                    <label class="font-weight-bold">Total de Arrays para média</label>
+                                    <input type="number" min="0" value="3" placeholder="Qnt de arrays para média"
+                                        class="form-control inputTamMedia">
+                                </div>
+                                <div id="resultadoExemploSelection" class="col-11 ml-3 mt-3 p-4 border resultadoExemplo"></div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -146,45 +185,38 @@
                     <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordion">
                         <div class="card-body">
                             <h5 class="tituloDefinicao">Definição</h5>
-                            <span>Este algoritmo tem como objetivo a reordenação de uma estrutura linear por meio da
-                                quebra, intercalação e união dos n elementos existentes. Em outras palavras, a estrutura a
-                                ser reordenada será, de forma recursiva, subdividida em estruturas menores até que não seja
-                                mais possível fazê-lo. Em seguida, os elementos serão organizados de modo que cada
-                                subestrutura ficará ordenada. Feito isso, as subestruturas menores (agora ordenadas) serão
-                                unidas, sendo seus elementos ordenados por meio de intercalação (SZWARCFITER e
-                                MARKENZON, 2015). O mesmo processo repete-se até que todos os elementos estejam
-                                unidos em uma única estrutura organizada
+                            <span>O método MergeSort tem como objetivo a reordenação de um array por meio da quebra, intercalação e união dos n elementos existentes, ou seja, a estrutura a ser reordenada será, de forma recursiva, subdividida em estruturas menores até que não seja mais possível fazê-lo.<br/>
+                                Em seguida, os elementos serão organizados de modo que cada subestrutura ficará ordenada. Feito isso, as subestruturas menores já ordenadas
+                                serão unidas, sendo seus elementos ordenados por meio de intercalação. O mesmo processo se repete até que todos os elementos estejam unidos em uma única estrutura organizada.
                             </span>
                             <h5 class="tituloDefinicao mt-4">Implementação</h5>
-                            <pre class="mt-3"><code class="language-js">function merge(left, right) {
-    let arr = []
-    // Break out of loop if any one of the array gets empty
-    while (left.length && right.length) {
-        // Pick the smaller among the smallest element of left and right sub arrays 
-        if (left[0] < right[0]) {
-            arr.push(left.shift())  
-        } else {
-            arr.push(right.shift()) 
-        }
-    }
-    
-    // Concatenating the leftover elements
-    // (in case we didn't go through the entire left or right array)
-    return [ ...arr, ...left, ...right ]
-}
-
-function mergeSort(array) {
-    const half = array.length / 2
-    
-    // Base case or terminating case
-    if(array.length < 2){
-      return array 
-    }
-    
-    const left = array.splice(0, half)
-    return merge(mergeSort(left),mergeSort(array))
-}
-</code></pre>
+                            <pre class="mt-3"><code class="language-js" id="codeMerge"></code></pre>
+                            <div class="row mt-4 py-3">
+                                <h5 class="tituloDefinicao ml-3 my-auto">Exemplo</h5>
+                                <btn class="btn btn-success font-weight-bold ml-3" id="btnExecutarMerge">Executar<i
+                                        class="ml-2 fa fa-caret-right"></i></btn>
+                            </div>
+                            <div class="row ml-3" id="ExemploMerge">
+                                <div class="col-12 col-lg-3 col-xl-3">
+                                    <label class="font-weight-bold">Ordem</label>
+                                    <select class="form-control select2 selectOrdem">
+                                        <option value="Aleatoria" selected>Aleatória</option>
+                                        <option value="Crescente">Crescente</option>
+                                        <option value="Decrescente">Decrescente</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-lg-4 col-xl-3">
+                                    <label class="font-weight-bold">Tamanho do Array</label>
+                                    <input type="number" min="0" value="200" placeholder="tamanho array"
+                                        class="form-control inputTamanho">
+                                </div>
+                                <div class="col-12 col-lg-5 col-xl-3">
+                                    <label class="font-weight-bold">Total de Arrays para média</label>
+                                    <input type="number" min="0" value="3" placeholder="Qnt de arrays para média"
+                                        class="form-control inputTamMedia">
+                                </div>
+                                <div id="resultadoExemploMerge" class="col-11 ml-3 mt-3 p-4 border resultadoExemplo"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -193,19 +225,14 @@ function mergeSort(array) {
     </div>
 
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"
-        integrity="sha512-axJX7DJduStuBB8ePC8ryGzacZPr3rdLaIDZitiEgWWk2gsXxEFlm4UW0iNzj2h3wp5mOylgHAzBzM4nRSvTZA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.70/jquery.blockUI.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
     <script src="Scripts/index.js"></script>
+    <script src="Scripts/metodosOrdenacao.js"></script>
+    <script src="Scripts/aprendizagem.js"></script>
 </body>
 
 </html>

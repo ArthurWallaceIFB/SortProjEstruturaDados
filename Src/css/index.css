@@ -1,7 +1,7 @@
 body{
     min-height: 100% !important;
     height: 100%;
-    animation: fadein 0.5s;
+    /* animation: fadein 0.5s; */
 }
 
 @keyframes fadein {
@@ -19,6 +19,13 @@ body{
     color: #3e6bad;
     font-weight: 600;
     font-family: 'Roboto', Arial, sans-serif;
+}
+
+.mensagemInicial{
+    font-weight: 500;
+    color: #192b46;
+    text-align: center;
+    margin: 1rem auto 0.5rem auto;
 }
 
 .card{
@@ -44,13 +51,13 @@ body{
     text-decoration: none;
     background: #4a7fcf;
     color: #fff !important;
-    transition: 0.2s;
+    transition: 0.8s;
     box-shadow: 2px 3px 8px 4px rgba(27,47,76,0.24);
 }
 
 .card-item-menu:hover .descricaoCard{
     color: #ececec;
-    transition: 0.2s;
+    transition: 0.8s;
 }
 
 .divIconCard{
@@ -79,6 +86,10 @@ body{
     text-align:center;
 }
 
+.font-weight-500{
+    font-weight: 500;
+}
+
 .btn-voltar{
     position: absolute;
     left: 1rem;
@@ -96,4 +107,23 @@ body{
 
 .btn-voltar i{
     padding: 0.6rem;
+}
+
+.bg-light-blue{
+    background: #d5e4fd;
+    color: #383838;
+}
+
+.resultadoExemplo{
+    background: #f1f1f1;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px 1px rgba(43, 55, 71, 0.24);
+}
+
+.cardExemplo{
+    animation: fadein 1s;
+}
+
+.cardExemplo:hover{
+    background: #eef5fa;
 }

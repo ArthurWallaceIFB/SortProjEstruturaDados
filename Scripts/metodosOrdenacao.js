@@ -1,8 +1,21 @@
-//#region Definir Códigos dos exemplos de implementação
+function gerarArrayAleatorio(tamanho, valorMax) {
+    valorMax = valorMax == null ? 1000 : valorMax;
+    var a = [];
+    for (var i = 0, l = valorMax; i < tamanho; i++) {
+        a.push(Math.round(Math.random() * l))
+    }
+    return a;
+}
 
-$("#codeBubble").text(`function BubbleSort(array, ordem) {
+function gerarOrdemAleatoria() {
+    var opcoesOrdem = ["Crescente", "Descrescente"];
+    var ordemAleatoria = opcoesOrdem[(Math.random() >= 0.5) ? 1 : 0];
+    return ordemAleatoria;
+}
+
+
+function BubbleSort(array, ordem) {
     ordem = (ordem == "Aleatoria" || ordem == null) ? gerarOrdemAleatoria() : ordem;
-    console.log("Ordem: " + ordem);
     var qntI = 0;
     var tempoExecucao;
 
@@ -27,33 +40,34 @@ $("#codeBubble").text(`function BubbleSort(array, ordem) {
         for (var i = 0; i < array.length; i++) {
             for (var j = i + 1; j < array.length; j++) {
                 if (array[i] < array[j]) {
-                    qntI++;
                     var temp = array[i];
                     array[i] = array[j];
                     array[j] = temp;
+                    qntI++;
                 }
             }
         }
         var t1 = performance.now();
         tempoExecucao = (t1 - t0).toFixed(3);
     }
-    
-    return [qntI, tempoExecucao];
-}`);
 
-$("#codeInsertion").text(`function InsertionSort(array, ordem){
+    return [qntI, tempoExecucao];
+}
+
+
+function InsertionSort(array, ordem) {
     ordem = (ordem == "Aleatoria" || ordem == null) ? gerarOrdemAleatoria() : ordem;
     var qntI = 0;
     var tempoExecucao;
     if (ordem == "Crescente") {
         var t0 = performance.now();
-        for(i=1; i<array.length; i++){
+        for (i = 1; i < array.length; i++) {
             temp = array[i];
-            var j = i-1;
-            for(; j>=0 && array[j]>temp; --j){
-                array[j+1] = array[j];
+            var j = i - 1;
+            for (; j >= 0 && array[j] > temp; --j) {
+                array[j + 1] = array[j];
             }
-            array[j+1] = temp;
+            array[j + 1] = temp;
             qntI++;
         }
         var t1 = performance.now();
@@ -62,22 +76,22 @@ $("#codeInsertion").text(`function InsertionSort(array, ordem){
 
     else {
         var t0 = performance.now();
-        for(i=1; i<array.length; i++){
+        for (i = 1; i < array.length; i++) {
             temp = array[i];
-            var j = i-1;
-            for(; j>=0 && array[j]<temp; --j){
-                array[j+1] = array[j];
+            var j = i - 1;
+            for (; j >= 0 && array[j] < temp; --j) {
+                array[j + 1] = array[j];
             }
-            array[j+1] = temp;
+            array[j + 1] = temp;
             qntI++;
         }
         var t1 = performance.now();
         tempoExecucao = (t1 - t0).toFixed(3);
     }
     return [qntI, tempoExecucao];
-}`);
+}
 
-$("#codeSelection").text(`function SelectionSort(array, ordem) {
+function SelectionSort(array, ordem) {
     ordem = (ordem == "Aleatoria" || ordem == null) ? gerarOrdemAleatoria() : ordem;
     var copiaArray = [...array];
     var resultado = [];
@@ -122,9 +136,10 @@ $("#codeSelection").text(`function SelectionSort(array, ordem) {
         tempoExecucao = (t1 - t0).toFixed(3);
     }
     return [qntI, tempoExecucao];
-}`);
+}
 
-$("#codeMerge").text(`var qntIntMerge;
+
+var qntIntMerge;
 function IniciarMergeSort(array, ordem) {
     ordem = (ordem == "Aleatoria" || ordem == null) ? gerarOrdemAleatoria() : ordem;
     qntIntMerge = 0;
@@ -166,5 +181,4 @@ function merge(a, b, ordem) {
         return result.concat(a.length ? a : b);
     }
 
-}`);
-//#endregion
+}
