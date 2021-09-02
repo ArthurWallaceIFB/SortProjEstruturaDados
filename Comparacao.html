@@ -1,49 +1,98 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="/SortProjEstruturaDados/Src/img/favicon.png"/>
+    <link rel="icon" type="image/png" href="/SortProjEstruturaDados/Src/img/favicon.png" />
     <title>SortProj - Comparação</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="/SortProjEstruturaDados/Src/css/all.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/SortProjEstruturaDados/Src/css/index.css" />
-    
+
 </head>
+
 <body>
     <div id="containerBody" class="container col-12 border py-5">
         <div id="cardMenus" class="col-12 col-md-10 mx-auto row p-1 p-md-5">
             <div class="col-12 mb-5">
                 <h2 id="tituloProjeto" class="text-center mt-5 mt-md-1">Comparação</h2>
             </div>
-            <a href="/SortProjEstruturaDados/index.html" class="btn-voltar" title="Home">
+            <a href="/SortProjEstruturaDados/index.html" data-toggle="tooltip" class="btn-voltar" title="Voltar">
                 <i class="fa fa-arrow-left"></i>
             </a>
-            <!-- <a id="cardAprendizagem" href="#" class="card card-item-menu row col-12 col-md-5 col-lg-4 mx-auto p-3 mt-2">
-                <div class="col-12 col-md-3 text-center divIconCard">
-                    <i class="fas fa-book-open iconeCard my-auto"></i>
+            <btn class="btn btn-success font-weight-bold mr-3 mt-2 mr-md-5" id="btnExecutarComparacao" data-toggle="tooltip" data-placement="bottom" title="Executar" >Executar<i
+                    class="ml-2 fa fa-caret-right"></i></btn>
+            <div class="col-12 row mx-auto">
+                <div class="col-12 col-lg-3 col-xl-3 mx-auto">
+                    <label class="font-weight-bold">Ordem</label>
+                    <select class="form-control select2 selectOrdem">
+                        <option value="Aleatoria" selected>Aleatória</option>
+                        <option value="Crescente">Crescente</option>
+                        <option value="Decrescente">Decrescente</option>
+                    </select>
                 </div>
-                <div class="col-12 col-md-9 px-0 row mx-auto">
-                    <span class="tituloCard text-center col-12 px-0">Aprendizagem</span>
-                    <span class="descricaoCard mx-auto">Descubra mais sobre cada método de ordenação</span>
+                <div class="col-12 col-lg-9 row mx-auto px-0" id="selecionarMetodosComparacao">
+                    <label class="font-weight-bold col-12 text-center">Selecione os metódos de ordenação</label>
+                    <div class="col-12 row mx-auto px-0 mt-auto" id="grupoCheckbox">
+                        <div class="mx-auto col-6 col-md-3">
+                            <input type="checkbox" value="BubbleSort" id="cbBubble" checked class="mr-2"><label for="cbBubble"
+                                class="label-checkbox mb-0">Bubble Sort</label>
+                        </div>
+                        <div class="mx-auto col-6 col-md-3">
+                            <input type="checkbox" value="InsertionSort" checked id="cbInsertion" class="mr-2"><label
+                                for="cbInsertion" class="label-checkbox mb-0">Insertion Sort</label>
+                        </div>
+                        <div class="mx-auto col-6 col-md-3">
+                            <input type="checkbox" value="SelectionSort" id="cbSelection" class="mr-2"><label
+                                for="cbSelection" class="label-checkbox mb-0">Selection Sort</label>
+                        </div>
+                        <div class="mx-auto col-6 col-md-3">
+                            <input type="checkbox" value="MergeSort" id="cbMerge" class="mr-2"><label for="cbMerge"
+                                class="label-checkbox mb-0">Merge Sort</label>
+                        </div>
+                    </div>
                 </div>
-            </a>
-            <a id="cardComparacao" href="#" class="card card-item-menu row col-12 col-md-5 col-lg-4 mx-auto p-3 mt-3 mt-md-0">
-                <div class="col-12 col-md-3 text-center divIconCard">
-                    <i class="fas fa-code iconeCard"></i>
+                <div class="table-responsive mt-5">
+                    <table id="tabelaResultadosComparacao" class="table table-striped table-bordered" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th>Método</th>
+                                <th>A[1000]</th>
+                                <th>A[5000]</th>
+                                <th>A[10000]</th>
+                                <th>A[2000]</th>
+                                <th>A[30000]</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>                    
                 </div>
-                <div class="col-12 col-md-9 px-0 row mx-auto">
-                    <span class="tituloCard text-center col-12 px-0">Comparação</span>
-                    <span class="descricaoCard mx-auto">Compare os método de ordenação</span>
+                <div class="col-12 divProcessando" style="">
+                    <span class="spinner-border spinner-border-sm mr-1" role="status" aria-hidden="true"></span> Processando...
                 </div>
-            </a> -->
+                <div class="col-12" id="erroNenhumSelecionado" style="display: none;">
+                    <span>Nenhum método foi selecionado!</span>
+                </div>
+                <div class="col-12 mt-5" id="divGrafico">
+                    <canvas id="canvasGrafico"></canvas>
+                </div>
+            </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script src="/SortProjEstruturaDados/Scripts/plugins/jquery.min.js"></script>
+    <script src="/SortProjEstruturaDados/Scripts/plugins/popper.min.js"></script>
+    <script src="/SortProjEstruturaDados/Scripts/plugins/bootstrap.min.js"></script>
+    <script src="/SortProjEstruturaDados/Scripts/plugins/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.js"></script>
+    <script src="/SortProjEstruturaDados/Scripts/plugins/sweetalert2@11.js"></script>
     <script src="Scripts/index.js"></script>
+    <script src="Scripts/metodosOrdenacao.js"></script>
+    <script src="Scripts/comparacao.js"></script>
 </body>
+
 </html>

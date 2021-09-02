@@ -90,6 +90,17 @@ body{
     font-weight: 500;
 }
 
+.rodape{
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    color: rgb(77, 77, 77);
+    opacity: 70%;
+}
+
 .btn-voltar{
     position: absolute;
     left: 1rem;
@@ -109,6 +120,25 @@ body{
     padding: 0.6rem;
 }
 
+.btn-comparacao{
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    color: #4a7fcf;
+    background: #fff;
+    border: 1px solid #4a7fcf;
+    border-radius: 100%;
+}
+
+.btn-comparacao:hover{
+    color: #fff;
+    background: #4a7fcf;
+}
+
+.btn-comparacao i{
+    padding: 0.6rem 0.5rem;
+}
+
 .bg-light-blue{
     background: #d5e4fd;
     color: #383838;
@@ -126,4 +156,54 @@ body{
 
 .cardExemplo:hover{
     background: #eef5fa;
+}
+
+#btnExecutarComparacao{
+    position:absolute;
+    right: 0;
+    cursor: pointer;
+}
+
+#selecionarMetodosComparacao input{
+    cursor: pointer;
+}
+
+#selecionarMetodosComparacao .label-checkbox{
+    font-weight: 500;
+    color: #6f6f6f;
+    cursor: pointer;
+}
+
+#tabelaResultadosComparacao thead{
+    background-color: #3467a0 !important;
+    border-color: #414950 !important;
+    color: #fff;
+}
+
+#tabelaResultadosComparacao td, th{
+    text-align: center;
+}
+
+#tabelaResultadosComparacao tbody td:first-child{
+    font-weight: 500;
+}
+
+#erroNenhumSelecionado{
+    border: 1px solid #3467a0;
+    padding: 2rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+.divProcessando{
+    border: 1px solid #3467a0;
+    padding: 2rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+
+.divProcessando .spinner-border{
+    width: 1.5rem;
+    height: 1.5rem;
 }

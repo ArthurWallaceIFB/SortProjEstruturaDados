@@ -168,3 +168,5 @@ function merge(a, b, ordem) {
 
 }`);
 //#endregion
+
+$('[data-toggle="tooltip"]').tooltip();
