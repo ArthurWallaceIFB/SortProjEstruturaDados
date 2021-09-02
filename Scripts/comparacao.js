@@ -71,11 +71,11 @@ function montarTabela(resultado, tamanhos) {
             $("#tabelaResultadosComparacao tbody").append(`
             <tr>
                 <td>${met[0]}</td>
-                <td>${met[1][1]} ms</td>
-                <td>${met[2][1]} ms</td>
-                <td>${met[3][1]} ms</td>
-                <td>${met[4][1]} ms</td>
-                <td>${met[5][1]} ms</td>
+                <td>${met[1][1]}ms (${met[1][0]})</td>
+                <td>${met[2][1]}ms (${met[2][0]})</td>
+                <td>${met[3][1]}ms (${met[3][0]})</td>
+                <td>${met[4][1]}ms (${met[4][0]})</td>
+                <td>${met[5][1]}ms (${met[5][0]})</td>
 
             </tr>
             `);
